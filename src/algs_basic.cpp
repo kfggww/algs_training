@@ -43,13 +43,13 @@ namespace algst
      * @param start
      * @param end
      */
-    void merge_sort(int *nums, int start, int end)
+    void msort(int *nums, int start, int end)
     {
         if (start >= end)
             return;
         int mid = (start + end) / 2;
-        merge_sort(nums, start, mid);
-        merge_sort(nums, mid + 1, end);
+        msort(nums, start, mid);
+        msort(nums, mid + 1, end);
         util::merge(nums, start, mid, end);
     }
 }

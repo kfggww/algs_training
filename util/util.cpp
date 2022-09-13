@@ -15,27 +15,29 @@ namespace algst
 
         void merge(int *nums, int start, int mid, int end)
         {
-            int i = 0;
-            int j = mid + 1 - start;
+            int i = start;
+            int j = mid + 1;
+            int pos = 0;
+            int *nums_merge = (int *)malloc(sizeof(int) * (end - start + 1));
 
-            int *nums_copy = (int *)malloc(sizeof(int) * (end - start + 1));
-            memcpy(nums_copy, nums + start, sizeof(int) * (end - start + 1));
-
-            for (int index = start; index <= end; ++index)
+            while (i <= mid || j <= end)
             {
-                if (i <= mid - start && j <= end - start)
+                if (i > mid)
                 {
-                    nums[index] = (nums_copy[i] <= nums_copy[j]) ? nums_copy[i++] : nums_copy[j++];
+                    nums_merge[pos++] = nums[j++];
                 }
-                else if (i > mid - start)
+                else if (j > end)
                 {
-                    nums[index] = nums_copy[j++];
+                    nums_merge[pos++] = nums[i++];
                 }
                 else
                 {
-                    nums[index] = nums_copy[i++];
+                    nums_merge[pos++] = (nums[i] <= nums[j]) ? nums[i++] : nums[j++];
                 }
             }
+
+            memcpy(nums + start, nums_merge, sizeof(int) * (end - start + 1));
+            free(nums_merge);
         }
     }
 }

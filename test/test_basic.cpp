@@ -15,7 +15,7 @@ TEST(TestBasic, TestQuickSort)
 TEST(TestBasic, TestMergeSort)
 {
     int nums[] = {12, 1, 34, 23, 12, 45};
-    algst::merge_sort(nums, 0, sizeof(nums) / sizeof(int) - 1);
+    algst::msort(nums, 0, sizeof(nums) / sizeof(int) - 1);
     for (int i = 0; i < sizeof(nums) / sizeof(int); ++i)
     {
         printf("%d\n", nums[i]);

@@ -4,7 +4,7 @@
 namespace algst
 {
     void qsort(int *nums, int start, int end);
-    void merge_sort(int *nums, int start, int end);
+    void msort(int *nums, int start, int end);
 } // namespace algst end
 
 #endif
